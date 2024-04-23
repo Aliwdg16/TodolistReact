@@ -5,7 +5,8 @@ import './App.css'
 import { Edit } from './Components/Edit'
 import { Clearlist } from './Components/Clearlist'
 import { Add } from './Components/Add'
-import Check from './Components/Check'
+import CheckList from '.Components/CheckList'
+
 
 function App() {
 
