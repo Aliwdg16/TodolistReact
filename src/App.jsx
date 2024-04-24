@@ -6,25 +6,29 @@ import { Edit } from './Components/Edit'
 import { Clearlist } from './Components/Clearlist'
 import { Add } from './Components/Add'
 import CheckList from '.Components/CheckList'
+import { SetLocalStorage } from "./Components/SetLocalStorage";
+import { GetlocalStorage } from "./Components/GetlocalStorage";
 
 
 function App() {
-
   return (
     <>
-    <div className='container' >
-
-    <header>
+      <div className="container">
+        <header>
           <div className="headertodo">
-            <div className="logona"> <img
-              src="https://static.vecteezy.com/system/resources/previews/006/549/765/non_2x/to-do-list-hand-drawn-doodle-icon-free-vector.jpg"
-              className="imglogo"
-              alt="logo"
-            /> <h1> To-do-list </h1></div>
-            <div className="headercontant">  
-              <p >Überuns</p>
-              <p >Kontakt</p>  
-          </div>
+            <div className="logona">
+              {" "}
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/006/549/765/non_2x/to-do-list-hand-drawn-doodle-icon-free-vector.jpg"
+                className="imglogo"
+                alt="logo"
+              />{" "}
+              <h1> To-do-list </h1>
+            </div>
+            <div className="headercontant">
+              <p>Überuns</p>
+              <p>Kontakt</p>
+            </div>
           </div>
         </header>
         <main>
@@ -37,60 +41,39 @@ function App() {
                 alt="logo"
               />
               <h1>To-Do Liste</h1>
-              
             </div>
             <div className="inputbtn">
-              <input type="text" className="add" id="add" placeholder="Enter task" />
+              <input
+                type="text"
+                className="add"
+                id="add"
+                placeholder="Enter task"
+              />
 
-              <Add/>
-            
+              <Add />
             </div>
             <div className="btnlist">
+              <Clearlist />
+              <Edit />
+               {/* <SetLocalStorage /> */}
+              {/* <GetlocalStorage />  */}
+            </div> 
 
-             <Clearlist/>
-               <Edit/>
-  
-            </div>
-          
             <div className="ulli">
               <ul className="list-group list-group-flush" id="itemlist">
-                {/* <li className="list-group-item">ali</li>
+                <li className="list-group-item">ali</li>
                 <li className="list-group-item">Daniel</li>
                 <li className="list-group-item">clara</li>
-                <li className="list-group-item">michal</li>  */}
+                <li className="list-group-item">michal</li> 
               </ul>
             </div>
           </div>
         </main>
-      
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-{/* 
-      <Edit/> */}
-    
-   
     
     </>
-  )
+  );
 }
 
-export default App
+export default App;
