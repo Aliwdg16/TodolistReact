@@ -1,17 +1,25 @@
-
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { Edit } from "./Components/Edit";
-import { Clearlist } from "./Components/Clearlist";
-import { Add } from "./Components/Add";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import { Edit } from './Components/Edit'
+import { Clearlist } from './Components/Clearlist'
+import { Add } from './Components/Add'
+import CheckList from '.Components/CheckList'
 import { SetLocalStorage } from "./Components/SetLocalStorage";
 import { GetlocalStorage } from "./Components/GetlocalStorage";
 
 
-
 function App() {
+
+
+
+  const handleToggle = (index) => {
+  const updatedItems = [...items];
+  updatedItems[index].completed = !updatedItems[index].completed;
+  setItems(updatedItems);
+  };
+
   return (
     <>
       <div className="container">
@@ -72,7 +80,16 @@ function App() {
         </main>
       </div>
 
-    
+      <ul>
+        {items.map((item, index) => (
+          <CheckList
+            key={index}
+            task={item.task}
+            completed={item.completed}
+            onToggle={() => handleToggle(index)}
+          />
+        ))}
+      </ul>
     </>
   );
 }
