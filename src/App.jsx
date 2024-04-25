@@ -11,6 +11,15 @@ import { GetlocalStorage } from "./Components/GetlocalStorage";
 
 
 function App() {
+
+
+
+  const handleToggle = (index) => {
+  const updatedItems = [...items];
+  updatedItems[index].completed = !updatedItems[index].completed;
+  setItems(updatedItems);
+  };
+
   return (
     <>
       <div className="container">
@@ -71,7 +80,16 @@ function App() {
         </main>
       </div>
 
-    
+      <ul>
+        {items.map((item, index) => (
+          <CheckList
+            key={index}
+            task={item.task}
+            completed={item.completed}
+            onToggle={() => handleToggle(index)}
+          />
+        ))}
+      </ul>
     </>
   );
 }
